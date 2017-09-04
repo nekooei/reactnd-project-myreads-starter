@@ -11,9 +11,16 @@ import escapeRegExp from 'escape-string-regexp'
 
 
 class BookSectionComponent extends Component{
+    static propTypes = {
+        Title : PropTypes.string.isRequired,
+        Books : PropTypes.array.isRequired,
+        updateBook : PropTypes.func.isRequired
+    }
+
+
 
     render(){
-        const { Title ,Books } = this.props
+        const { Title ,Books , updateBook} = this.props
         return(
             <div className="bookshelf">
                 <h2 className="bookshelf-title">{Title}</h2>
@@ -21,7 +28,7 @@ class BookSectionComponent extends Component{
                     <ol className="books-grid">
                         {Books.map(Book => (
                             <li key={Book.id}>
-                                <BookComponent Book={Book} />
+                                <BookComponent Book={Book} updateBookStatus={updateBook} />
                             </li>
                         ))}
                     </ol>
