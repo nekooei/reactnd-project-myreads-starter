@@ -30,9 +30,13 @@ class BookComponent extends Component{
                     </div>
                 </div>
                 <div className="book-title">{Book.title}</div>
-                {Book.authors.map(author => (
-                    <div className="book-authors">{author}</div>
-                ))}
+                {console.log(Book.authors)}
+                {Book.authors !== undefined ? (
+                    Book.authors.map(author => (
+                        <div className="book-authors">{author}</div>
+                    ))
+                    ) : (<div className="book-authors"> </div> )}
+                {/**/}
             </div>
         )
     }
