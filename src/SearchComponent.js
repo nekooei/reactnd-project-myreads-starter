@@ -11,6 +11,9 @@ import BookSectionComponent from "./BookSectionComponet";
 import BookComponent from "./BookComponent";
 
 class SearchComponent extends Component{
+    static propTypes ={
+        addBook : PropTypes.func.isRequired
+    }
 
     state ={
         query : '',
@@ -30,6 +33,7 @@ class SearchComponent extends Component{
     }
 
     render(){
+        const  { addBook } = this.props
         const {query , searchResult} = this.state
         console.log(searchResult)
         let mustShow = searchResult
@@ -48,7 +52,7 @@ class SearchComponent extends Component{
                         <ol className="books-grid">
                             {mustShow.map(book => (
                                 <li key={book.id}>
-                                    <BookComponent Book={book}/>
+                                    <BookComponent Book={book} updateBookStatus={addBook}/>
                                 </li>
                             ))}
                         </ol>
