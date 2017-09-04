@@ -35,9 +35,7 @@ class SearchComponent extends Component{
     render(){
         const  { addBook } = this.props
         const {query , searchResult} = this.state
-        console.log(searchResult)
         let mustShow = searchResult
-        mustShow.sort(sortBy('title'))
         return (
                 <div className="search-books">
                     <div className="search-books-bar">
