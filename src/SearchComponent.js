@@ -31,7 +31,7 @@ class SearchComponent extends Component{
 
     render(){
         const  { addBook } = this.props
-        const {query , searchResult} = this.state
+        const { searchResult} = this.state
         let mustShow = searchResult
         return (
                 <div className="search-books">
@@ -45,11 +45,15 @@ class SearchComponent extends Component{
                     </div>
                     <div className="search-books-results">
                         <ol className="books-grid">
-                            {mustShow.map(book => (
-                                <li key={book.id}>
-                                    <BookComponent Book={book} updateBookStatus={addBook}/>
-                                </li>
-                            ))}
+                            {mustShow !== undefined ? (
+                                mustShow.map(book => (
+                                    <li key={book.id}>
+                                        <BookComponent Book={book} updateBookStatus={addBook}/>
+                                    </li>
+                                ))
+                            ) : (
+                                <li></li>
+                            )}
                         </ol>
                     </div>
                 </div>
