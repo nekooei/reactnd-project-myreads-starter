@@ -31,7 +31,7 @@ class BookComponent extends Component{
                 <div className="book-title">{Book.title}</div>
                 {Book.authors !== undefined ? (
                     Book.authors.map(author => (
-                        <div className="book-authors">{author}</div>
+                        <div key={author} className="book-authors">{author}</div>
                     ))
                     ) : (<div className="book-authors"> </div> )}
                 {/**/}
