@@ -5,9 +5,6 @@
 import React, { Component } from 'react'
 import BookComponent from './BookComponent'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import sortBy from 'sort-by'
-import escapeRegExp from 'escape-string-regexp'
 
 
 class BookSectionComponent extends Component{
