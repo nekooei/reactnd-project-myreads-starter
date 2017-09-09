@@ -36,6 +36,8 @@ class BooksApp extends React.Component {
             case 'read':
                 this.addRead(Book)
                 break
+            default:
+                break
         }
     }
 
@@ -87,9 +89,9 @@ class BooksApp extends React.Component {
                         </div>
                         <div className="list-books-content">
                             <div>
-                                <BookSectionComponent Title="Currently Reading" Books={this.state.CurrentlyReading}
-                                                      updateBook={this.updateBook}/>
                                 <BookSectionComponent Title="Want to Read" Books={this.state.WantToRead}
+                                                      updateBook={this.updateBook}/>
+                                <BookSectionComponent Title="Currently Reading" Books={this.state.CurrentlyReading}
                                                       updateBook={this.updateBook}/>
                                 <BookSectionComponent Title="Read" Books={this.state.Read}
                                                       updateBook={this.updateBook}/>
