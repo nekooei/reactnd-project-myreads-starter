@@ -8,7 +8,6 @@ import SearchComponent from "./SearchComponent";
 
 class BooksApp extends React.Component {
     state = {
-        Books: [],
         CurrentlyReading: [],
         WantToRead: [],
         Read: []
