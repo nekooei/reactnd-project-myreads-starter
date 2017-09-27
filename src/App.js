@@ -78,6 +78,24 @@ class BooksApp extends React.Component {
         })
     }
 
+    getShelf = (book) => {
+        for(let current of (this.state.CurrentlyReading)){
+            if(current.id === book.id){
+                return 'currentlyReading'
+            }
+        }
+        for(let want of (this.state.WantToRead)){
+            if(want.id === book.id){
+                return 'wantToRead'
+            }
+        }
+        for(let read of (this.state.Read)){
+            if(read.id === book.id){
+                return 'read'
+            }
+        }
+    }
+
 
     render() {
         return (
@@ -108,7 +126,7 @@ class BooksApp extends React.Component {
                 )}/>
 
                 <Route path="/search" render={({history}) => (
-                    <SearchComponent addBook={(Book, shelf) => {
+                    <SearchComponent getShelf={this.getShelf} addBook={(Book, shelf) => {
                         this.updateBook(Book, shelf)
                         history.push('/')
                     }}/>
