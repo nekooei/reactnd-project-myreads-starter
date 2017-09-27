@@ -9,7 +9,8 @@ import BookComponent from "./BookComponent";
 
 class SearchComponent extends Component{
     static propTypes ={
-        addBook : PropTypes.func.isRequired
+        addBook : PropTypes.func.isRequired,
+        getShelf: PropTypes.func.isRequired
     }
 
     state ={
@@ -30,7 +31,7 @@ class SearchComponent extends Component{
     }
 
     render(){
-        const  { addBook } = this.props
+        const  { addBook , getShelf} = this.props
         const { searchResult} = this.state
         let mustShow = searchResult
         return (
@@ -48,7 +49,7 @@ class SearchComponent extends Component{
                             {mustShow !== undefined ? (
                                 mustShow.map(book => (
                                     <li key={book.id}>
-                                        <BookComponent Book={book} updateBookStatus={addBook}/>
+                                        <BookComponent getShelf={getShelf} Book={book} updateBookStatus={addBook}/>
                                     </li>
                                 ))
                             ) : (
